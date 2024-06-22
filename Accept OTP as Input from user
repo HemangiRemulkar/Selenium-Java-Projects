@@ -1,0 +1,19 @@
+WebElement Mobile_number_input=driver.findElement(By.id("user_mobile"));
+Mobile_number_input.sendKeys("**********");
+WebElement Send_OTP=driver.findElement(By.id("sendotp"));
+Send_OTP.click();
+WebElement Enter_OTP=driver.findElement(By.id("user_otp"));
+Enter_OTP.click();
+//Accept OTP as Input from user
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter OTP");
+String otp=sc.nextLine();
+sc.close();
+WebElement otp1=driver.findElement((By.id("user_otp")));
+otp1.sendKeys(otp);
+Thread.sleep(2000);
+System.out.println("OTP entered");
+WebElement Login=driver.findElement(By.id("btn_login"));
+Login.click();
+Thread.sleep(3000);
+System.out.println("Login scenario Passed");
