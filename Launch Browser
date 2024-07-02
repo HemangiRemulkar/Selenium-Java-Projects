@@ -1,0 +1,20 @@
+package practicelabs;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class launchbrowser {
+	
+	public static void main(String[] args) 
+	{	
+	WebDriverManager.chromedriver().setup(); //WebDriverManager class has method called ChromeDriver	which has method setup. This statemnet will set driver
+	WebDriver driver = new ChromeDriver(); //Instantiate object
+	driver.get("https://www.google.com/"); // launch browser
+	
+	}
+
+}
