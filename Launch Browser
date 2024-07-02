@@ -13,8 +13,13 @@ public class launchbrowser {
 	{	
 	WebDriverManager.chromedriver().setup(); //WebDriverManager class has method called ChromeDriver	which has method setup. This statemnet will set driver
 	WebDriver driver = new ChromeDriver(); //Instantiate object
-	driver.get("https://www.google.com/"); // launch browser
+	driver.get("https://www.google.com/"); // Launch url
+	System.out.println(driver.getTitle()); // Returns title of the page
+	System.out.println(driver.getCurrentUrl()); // Returns url of the page
+	System.out.println(driver.getPageSource()); // return html element
+	
 	
 	}
 
 }
+
