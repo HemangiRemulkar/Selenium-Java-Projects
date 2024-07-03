@@ -1,0 +1,23 @@
+package practicelabs;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+public class conditionalstatements {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup(); //WebDriverManager class has method called ChromeDriver	which has method setup. This statemnet will set driver
+		WebDriver driver = new ChromeDriver(); //Instantiate object
+		driver.get("https://www.google.com/"); // Launch url
+		
+		WebElement Search=driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/textarea"));
+		System.out.println(Search.isDisplayed());
+		System.out.println(Search.isEnabled());
+		System.out.println(Search.isSelected()); //used for checkboxes or radio buttons
+	}
+
+}
