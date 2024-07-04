@@ -1,0 +1,53 @@
+package test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class SelectClassExample {
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://the-internet.herokuapp.com/dropdown");
+		Thread.sleep(2000);
+		WebElement dropdownList=driver.findElement(By.id("dropdown"));
+		dropdownList.click();
+		Thread.sleep(4000);
+		
+        // Create an instance of the Select class and pass the dropdownList element to it
+        Select select = new Select(dropdownList);
+        
+        // Select an option by visible text
+        select.selectByVisibleText("Option 1");
+        System.out.println("Selected Option 1 by visible text");
+
+        // Select an option by value
+        select.selectByValue("2");
+        System.out.println("Selected Option 2 by value");
+
+        // Select an option by index (0-based)
+        select.selectByIndex(1); // Selects "Option 1"
+        System.out.println("Selected Option 1 by index");
+
+        // Get all options
+        for (WebElement option : select.getOptions()) {
+            System.out.println("Option: " + option.getText());
+        }
+
+        // Get the first selected option
+        WebElement firstSelectedOption = select.getFirstSelectedOption();
+        System.out.println("First selected option: " + firstSelectedOption.getText());
+
+
+		
+
+	}
+
+}
