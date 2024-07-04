@@ -1,0 +1,32 @@
+package test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class verify {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://the-internet.herokuapp.com/tables");
+		WebElement element=driver.findElement(By.xpath("/html/body/div[2]/div/div/table[1]/tbody/tr[1]/td[6]/a[1]"));
+		System.out.println(element.getText());
+		String actualText = element.getText();
+		String expectedText = "editone";
+		if(actualText.equals(expectedText))
+		{
+			System.out.println("Verification Passed: The text matches the expected value.");
+        } else 
+        {
+            System.out.println("Verification Failed: The text does not match the expected value, but continuing execution.");
+        }
+		System.out.println("Test continues..");
+	}
+
+}
