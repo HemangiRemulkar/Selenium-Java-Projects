@@ -1,0 +1,27 @@
+package seleniumjava;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class FileUpload {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://the-internet.herokuapp.com/upload");
+		WebElement file_upload=driver.findElement(By.id("file-upload"));
+		file_upload.sendKeys("D:\\Hemangi Kadam\\Downloads\\Raise Complaint.docx");
+		System.out.println("File uploaded");
+		WebElement file_submit=driver.findElement(By.id("file-submit"));
+		file_submit.click();
+		WebElement success_msg=driver.findElement(By.xpath("/html/body/div[2]/div/div/h3"));
+		System.out.println("Success message:"+success_msg.getText());
+	}
+
+}
